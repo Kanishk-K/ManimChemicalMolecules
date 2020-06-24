@@ -24,6 +24,34 @@ A program that can convert svg depictions of molecules into manim-compatible one
 # Using the file in manim.
 - Once the file is in your directory test for the general shape by using the following code. Remember manim omits `<text/>` tags in svgs.
 ![Frame](https://user-images.githubusercontent.com/64181873/85634500-1f26fe00-b641-11ea-9fc1-9e649d6066c9.png)
+```python
+class MoleculeSVGTest(Scene):
+    def construct(self):
+        PropylAcetate = SVGMobject("manim_PropylAcetate")
+        for i in range(len(PropylAcetate)):
+            PropylAcetate[i].set_stroke(width=1)
+
+        self.add(PropylAcetate)
+        self.wait()
+```
 
 - Finally, add non-carbon groups with color by using some relative positioning before putting the respective objects within a VGroup which you can call anytime.
 ![Complete](https://user-images.githubusercontent.com/64181873/85634989-75e10780-b642-11ea-91f1-33a11ecad4ff.png)
+```python
+class MoleculeSVGTest(Scene):
+    def construct(self):
+        PropylAcetate = SVGMobject("manim_PropylAcetate")
+        for i in range(len(PropylAcetate)):
+            PropylAcetate[i].set_stroke(width=1)
+
+        Ether = TextMobject("O",color=RED).move_to(PropylAcetate[4].get_center()+LEFT*.9+DOWN*.5)
+        CarboxylO = TextMobject("O",color=RED).move_to(PropylAcetate[1].get_center()+TOP*.25+RIGHT*.15)
+
+        PropylAcetateVGroup = VGroup(
+            PropylAcetate,
+            Ether,
+            CarboxylO
+        )
+        self.add(PropylAcetateVGroup)
+        self.wait()
+```
