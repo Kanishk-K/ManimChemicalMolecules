@@ -1,5 +1,7 @@
 # Manim Chemical Molecules
 A program that can convert svg depictions of molecules into manim-compatible ones.
+![MoleculeSVGTest](https://user-images.githubusercontent.com/64181873/85636573-8a270380-b646-11ea-955d-003c65bd6bf2.gif)
+
 
 # Getting the initial svg file for conversion
 - First, go to a website such as http://molview.org/ and select a molecule.
